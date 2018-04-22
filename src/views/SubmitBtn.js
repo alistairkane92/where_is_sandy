@@ -21,9 +21,9 @@ class SubmitBtn extends Component {
     }
 
   return(
-    <div>
+    <div id="img-button">
     <QuestionImage qnum={this.state.qnum}/>
-    <button onClick={submit}>Submit Answer</button>
+    <button onClick={submit} id="button">Submit Answer</button>
     </div>
   )
   }

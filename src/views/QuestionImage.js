@@ -1,4 +1,5 @@
 import React from 'react';
+import StoryMsg from './StoryMsg'
 import img1 from '../images/1.png'
 import img2 from '../images/2.png'
 import img3 from '../images/3.png'
@@ -18,10 +19,10 @@ const whichImg = (num) => {
 }
 
 const QuestionImage = (props) => {
-  console.log(props.qnum);
   return(
     <div>
-      <img src={whichImg(props.qnum)} alt="question"/>
+      <StoryMsg qnum={props.qnum}/>
+      <img src={whichImg(props.qnum)} id="img" alt="question"/>
     </div>
   )
 }

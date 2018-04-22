@@ -16,8 +16,9 @@ class TextInput extends Component{
   render(){
     return (
       <div>
-      <p>require_relative("<input onChange={this.updateAnswer}/>")</p>
       <SubmitBtn answer={this.state.answer}/>
+      <p className="center">require_relative("<input onChange={this.updateAnswer}/>")</p>
+      <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-, then click Submit Answer</p>
       </div>
     )
   }
