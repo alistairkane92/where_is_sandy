@@ -5,7 +5,7 @@ this.evalQ = function(qnum, ans) {
     return true
   } else if (qnum == 3 && ans == "../home/sandy"){
     return true
-  } else if (qnum == 4 && ans == "../../../../beach/sea/sandy"){
+  } else if (qnum == 4 && ans == "../../../beach/sea/sandy"){
     return true
   } return false;
 };

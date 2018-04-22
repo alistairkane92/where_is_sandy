@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import QuestionImage from "./QuestionImage.js"
 import Game from "../models/Game.js"
 
 class SubmitBtn extends Component {
@@ -15,12 +16,13 @@ class SubmitBtn extends Component {
         console.log(newNum);
         this.setState({qnum: newNum})
       } else {
-        alert("Load Error! Sandy not found")
+        alert("Load Error! Sandy not found. Please try again.")
       }
     }
 
   return(
     <div>
+    <QuestionImage qnum={this.state.qnum}/>
     <button onClick={submit}>Submit Answer</button>
     </div>
   )
