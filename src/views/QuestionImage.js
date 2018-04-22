@@ -6,13 +6,13 @@ import img4 from '../images/4.png'
 
 const whichImg = (num) => {
   console.log(num);
-  if (num == 1){
+  if (num === 1){
     return img1
-  } if (num == 2){
+  } if (num === 2){
     return img2
-  } if (num == 3){
+  } if (num === 3){
     return img3
-  } if (num == 4){
+  } if (num === 4){
     return img4
   }
 }
@@ -21,7 +21,7 @@ const QuestionImage = (props) => {
   console.log(props.qnum);
   return(
     <div>
-      <img src={whichImg(props.qnum)}/>
+      <img src={whichImg(props.qnum)} alt="question"/>
     </div>
   )
 }
