@@ -7,6 +7,7 @@ class Main extends Component {
       <div>
       <h3>Welcome to Require_Relative</h3>
       <h5>A short game to help you find your files!</h5>
+      <br/>
       <GameView/>
       </div>
     )

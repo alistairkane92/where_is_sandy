@@ -16,7 +16,7 @@ class TextInput extends Component{
   render(){
     return (
       <div>
-      <input onChange={this.updateAnswer} placeholder="Type the path to Sandy"/>
+      <p>require_relative("<input onChange={this.updateAnswer}/>")</p>
       <SubmitBtn answer={this.state.answer}/>
       </div>
     )

@@ -1,25 +1,29 @@
 import React, {Component} from 'react';
+import Game from "../models/Game.js"
 
 class SubmitBtn extends Component {
   constructor(props){
-    super(props);
+    super(props)
+    this.state = {qnum: 1}
   }
 
   render(){
     const submit = () => {
-      console.log(this.props.answer);
-      if (this.props.answer == "Sandy"){
+      if (Game.evalQ(this.state.qnum, this.props.answer.toLowerCase())){
         alert("Well done! You found Sandy!")
+        var newNum = this.state.qnum + 1
+        console.log(newNum);
+        this.setState({qnum: newNum})
       } else {
         alert("Load Error! Sandy not found")
       }
     }
 
-    return(
+  return(
     <div>
-      <button onClick={submit}>Submit Answer</button>
+    <button onClick={submit}>Submit Answer</button>
     </div>
-    )
+  )
   }
 }
 
