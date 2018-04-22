@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import HomePage from './views/HomePage.js'
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+  }
+  
   render() {
     return (
-      <h1>Test</h1>
+      <HomePage/>
     );
   }
 }
