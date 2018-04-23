@@ -19,7 +19,7 @@ const whichImg = (num) => {
 
 const QuestionImage = (props) => {
   return(
-    <div>
+    <div id="img-button">
       <StoryMsg qnum={props.qnum}/>
       <img src={whichImg(props.qnum)} id="img" alt="question"/>
     </div>

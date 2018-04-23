@@ -21,7 +21,7 @@ const whichMsg = (qnum) => {
 
 const StoryMsg = (props) => {
   return(
-    <p className="center">{whichMsg(props.qnum)}</p>
+    <p className="center" id="msg">{whichMsg(props.qnum)}</p>
   )
 }
 

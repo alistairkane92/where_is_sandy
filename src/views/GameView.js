@@ -35,11 +35,12 @@ class GameView extends Component{
     return (
       <div>
       <QuestionImage qnum={this.state.qnum}/>
-      <form onSubmit={this.submit}>
+      <br/>
+      <form onSubmit={this.submit} className="center">
       <input type="submit"id="button" value="Submit Answer" />
       </form>
-      <p className="center">require_relative("<input onChange={this.updateAnswer} onKeyPress={this.handleKeyPress}/>")</p>
-      <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-, then click Submit Answer</p>
+      <p className="center" id="require_input">require_relative("<input onChange={this.updateAnswer} onKeyPress={this.handleKeyPress}/>")</p>
+      <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-, then click Submit Answer or press Enter</p>
       </div>
     )
   }
