@@ -16,6 +16,10 @@ const whichMsg = (qnum) => {
   if (qnum === 4){
     return "Bob was in an important meeting with his boss when he remembered that he left Sandy at the beach."
   }
+
+  if (qnum === 5){
+    return "Nice work! Thanks for playing!"
+  }
 }
 
 
