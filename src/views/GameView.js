@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Game from '../models/Game.js'
 import QuestionImage from './QuestionImage.js'
+import StoryMsg from './StoryMsg.js'
 
 class GameView extends Component{
   constructor(props) {
@@ -36,10 +37,10 @@ class GameView extends Component{
       <div>
       <QuestionImage qnum={this.state.qnum}/>
       <br/>
+      <p className="center" id="require_input">require_relative("<input onChange={this.updateAnswer} onKeyPress={this.handleKeyPress}/>")</p>
       <form onSubmit={this.submit} className="center">
       <input type="submit"id="button" value="Submit Answer" />
       </form>
-      <p className="center" id="require_input">require_relative("<input onChange={this.updateAnswer} onKeyPress={this.handleKeyPress}/>")</p>
       <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-, then click Submit Answer or press Enter</p>
       </div>
     )
