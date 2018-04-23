@@ -37,7 +37,7 @@ class GameView extends Component{
       <div>
       <QuestionImage qnum={this.state.qnum}/>
       <br/>
-      <p className="center" id="require_input">require_relative("<input onChange={this.updateAnswer} onKeyPress={this.handleKeyPress}/>")</p>
+      <p className="center" id="require_input">require_relative("<input onChange={this.updateAnswer} onKeyPress={this.handleKeyPress} id="user-input"/>")</p>
       <form onSubmit={this.submit} className="center">
       <input type="submit"id="button" value="Submit Answer" />
       </form>

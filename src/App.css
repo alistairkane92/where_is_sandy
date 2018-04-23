@@ -43,11 +43,15 @@ body{
 #msg {
   word-spacing: 1px;
   font-style: italic;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 #require_input {
 font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
 color: MEDIUMBLUE;
-font-size: 20px;
+font-size: 17px;
+}
+
+#user-input {
+  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
 }
