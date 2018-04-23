@@ -6,7 +6,6 @@ import img3 from '../images/3.png'
 import img4 from '../images/4.png'
 
 const whichImg = (num) => {
-  console.log(num);
   if (num === 1){
     return img1
   } if (num === 2){

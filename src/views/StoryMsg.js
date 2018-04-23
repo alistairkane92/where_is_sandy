@@ -20,7 +20,6 @@ const whichMsg = (qnum) => {
 
 
 const StoryMsg = (props) => {
-  console.log("StoryMsg", props);
   return(
     <p className="center">{whichMsg(props.qnum)}</p>
   )
