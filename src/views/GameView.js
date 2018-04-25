@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Game from '../models/Game.js'
 import QuestionImage from './QuestionImage.js'
 import StoryMsg from './StoryMsg.js'
+import SuccessMsg from './SuccessMsg.js'
 
 class GameView extends Component{
   constructor(props) {
@@ -39,9 +40,11 @@ class GameView extends Component{
   }
 
   render(){
-    console.log("endgame render", this.state.end);
+    console.log(this.state.qnum);
     return (
       <div>
+
+      {this.state.qnum >= 2 ? <SuccessMsg/> : null}
       <QuestionImage qnum={this.state.qnum}/>
       <br/>
 

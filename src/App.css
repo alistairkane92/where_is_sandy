@@ -9,6 +9,7 @@
 
 body{
   background-color: coral;
+  margin: 2%;
 }
 
 h1{
@@ -43,21 +44,40 @@ h1{
   justify-content: center;
   justify-content: space-between;
   flex-direction: column;
-  padding: 10px;
 }
 
 #msg {
   word-spacing: 1px;
   font-style: italic;
-  font-size: 17px;
+  font-size: 1vw;
 }
 
 #require_input {
 font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
-color: MEDIUMBLUE;
+color: blue;
 font-size: 17px;
 }
 
 #user-input {
   font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+}
+
+#success-msg {
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  background-color: black;
+  display:flex;
+  justify-content: center;
+}
+
+#main {
+  border: 2px;
+  border-style: solid;
+}
+
+#header {
+  background-color: white;
+  padding: 10px;
 }
