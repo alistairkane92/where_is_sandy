@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Game from '../models/Game.js'
 import QuestionImage from './QuestionImage.js'
-import StoryMsg from './StoryMsg.js'
 import SuccessMsg from './SuccessMsg.js'
 
 class GameView extends Component{
