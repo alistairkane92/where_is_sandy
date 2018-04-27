@@ -13,10 +13,11 @@ body{
 
 h1{
   font-family: 'Black Han Sans', sans-serif;
+  font-size: 3.0vw;
 }
 
 h5{
-  font-size: 1.5vw;
+  font-size: 1.2vw;
 }
 
 #img {
