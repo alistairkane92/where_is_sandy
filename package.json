@@ -5,6 +5,7 @@
   "homepage": "http://alistairkane92.github.io/where_is_sandy",
   "dependencies": {
     "git-pages": "^0.8.1",
+    "npm": "^6.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"

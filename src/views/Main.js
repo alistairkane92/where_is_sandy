@@ -8,7 +8,7 @@ class Main extends Component {
       <div id="main">
       <div id="header">
       <h1 className="center">Where's Sandy?</h1>
-      <h5 className="center">A short game to help you find your files.</h5>
+      <h5 className="center">A short game to help you find your files</h5>
       </div>
       <GameView/>
       </div>

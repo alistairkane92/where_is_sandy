@@ -6,19 +6,23 @@ const whichMsg = (qnum) => {
   }
 
   if (qnum === 2){
-    return "Bob was taking Sandy out for a walk but he seems to have run off."
+    return "Bob was taking Sandy out for a walk but he seems to have ran away..."
   }
 
   if (qnum === 3){
-    return "Bob has to get out of work before he gets to go home to Sandy."
+    return "Sometimes, Sandy likes to wait for Bob outside of his work."
   }
 
   if (qnum === 4){
-    return "Bob was in an important meeting with his boss when he remembered that he left Sandy at the beach."
+    return "Bob has to get out of work before he can go home to Sandy."
   }
 
   if (qnum === 5){
-    return "Nice work! Thanks for playing!"
+    return "Bob was in an important meeting with his boss when he remembered that he left Sandy at the beach."
+  }
+
+  if (qnum === 6){
+    return "Almost there.. find Sandy!"
   }
 }
 

@@ -5,6 +5,8 @@ import img2 from '../images/2.png'
 import img3 from '../images/3.png'
 import img4 from '../images/4.png'
 import img5 from '../images/5.png'
+import img6 from '../images/6.png'
+import img7 from '../images/7.png'
 
 const whichImg = (num) => {
   if (num === 1){
@@ -15,10 +17,17 @@ const whichImg = (num) => {
     return img3
   } if (num === 4){
     return img4
-  } else return img5
+  } if (num === 5){
+    return img5
+  } if (num === 6){
+    return img6
+  }
+  return img7
 }
 
 const QuestionImage = (props) => {
+  console.log("whichImg", props);
+
   return(
     <div id="img-button">
       <StoryMsg qnum={props.qnum}/>

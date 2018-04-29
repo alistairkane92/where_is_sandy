@@ -29,7 +29,7 @@ class GameView extends Component{
       let notWrongAnymore = false;
       this.setState({wrong: notWrongAnymore})
 
-      if (this.state.qnum === 4){
+      if (this.state.qnum === 6){
         let endGame = true
         this.setState({end: endGame})
       }
@@ -43,7 +43,6 @@ class GameView extends Component{
   }
 
   render(){
-    console.log("Submitted", this.state.submitted);
     return (
       <div>
       <QuestionImage qnum={this.state.qnum}/>
