@@ -7,17 +7,20 @@
 }
 
 body{
-  background-color: coral;
+  background-color: #FFD166;
   margin: 2%;
 }
 
 h1{
   font-family: 'Black Han Sans', sans-serif;
-  font-size: 3.0vw;
+  font-size: 2.8vw;
+  color: #F5F5F5;
+  height: 1.8vw;
 }
 
 h5{
-  font-size: 1.2vw;
+  font-size: 0.9vw;
+  color: #F5F5F5;
 }
 
 #img {
@@ -32,19 +35,22 @@ h5{
 }
 
 #button {
-  background-color: DARKKHAKI;
+  background-color: #008080;
   border: none;
-  color: white;
+  color: #F5F5F5;
   padding: 8px 22px;
+  margin-top: 1vw;
+  margin-left: 1vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.5vw;
+  font-size: 1.0vw;
+  height: 3.0vw;
 }
 
 #img-button{
   display: flex;
-  background-color: DEEPSKYBLUE;
+  background-color: #FFFCF9;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -59,7 +65,7 @@ h5{
 
 #require_input {
 font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
-color: blue;
+color:#0000CD;
 font-size: 1.5vw;
 }
 
@@ -71,26 +77,39 @@ font-size: 1.5vw;
 #success-msg {
   display:flex;
   justify-content: center;
-  color: lime;
+  color: #7FFF00;
   font-weight: bold;
-  font-style: italic;
   background-color: black;
+  word-spacing: 1px;
 }
 
 #header {
-  background-color: white;
+  background-color: #008080;
   padding: 2px;
-  height: 10vw;
+  height: 8vw;
 }
 
 #load-error-msg{
   display:flex;
   justify-content: center;
   font-weight: bold;
-  font-style: italic;
   background-color: black;
+  word-spacing: 1px;
 }
 
 #load-error-msg p{
-  color: red;
+  color: #DC143C;
+}
+
+#hint-msg{
+  display: flex;
+  justify-content: center;
+  color: #9400D3;
+  height: 2.8vw;
+  font-style: italic;
+}
+
+#require-submit{
+  display: flex;
+  justify-content: center;
 }

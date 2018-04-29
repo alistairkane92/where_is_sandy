@@ -7,7 +7,7 @@ import LoadErrorMsg from './LoadErrorMsg.js'
 class GameView extends Component{
   constructor(props) {
     super(props);
-    this.state = {answer: "", qnum: 1, end: false, wrong: false};
+    this.state = {answer: "", qnum: 1, end: false, wrong: false, submitted: ""};
   }
 
   updateAnswer = (e) => {
@@ -36,21 +36,27 @@ class GameView extends Component{
     } else {
       let newState = true
       this.setState({wrong: newState})
+
+      let submitState = this.state.answer
+      this.setState({submitted: submitState})
     }
   }
 
   render(){
+    console.log("Submitted", this.state.submitted);
     return (
       <div>
       <QuestionImage qnum={this.state.qnum}/>
       {this.state.end ? null :
       <div>
       {this.state.qnum >= 2 ? this.state.wrong ? null: <SuccessMsg/> : null}
-      {this.state.wrong ? <LoadErrorMsg/> : null}
+      {this.state.wrong ? <LoadErrorMsg qnum={this.state.qnum} submitted={this.state.submitted}/> : null}
+      <div id="require-submit">
       <p className="center" id="require_input">require_relative("<input onChange={this.updateAnswer} onKeyPress={this.handleKeyPress} id="user-input"/>")</p>
       <form onSubmit={this.submit} className="center">
       <input type="submit"id="button" value="Submit Answer" />
       </form>
+      </div>
       <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-, then click Submit Answer or press Enter</p>
       </div>}
 
