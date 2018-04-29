@@ -26,8 +26,6 @@ const whichImg = (num) => {
 }
 
 const QuestionImage = (props) => {
-  console.log("whichImg", props);
-
   return(
     <div id="img-button">
       <StoryMsg qnum={props.qnum}/>
