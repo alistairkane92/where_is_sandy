@@ -47,7 +47,7 @@ class GameView extends Component{
 
   render(){
     return (
-      <div>
+      <React.Fragment>
       <QuestionImage qnum={this.state.qnum}/>
       {this.state.end ? null :
       <div>
@@ -59,10 +59,10 @@ class GameView extends Component{
       <input type="submit"id="button" value="Submit Answer" />
       </form>
       </div>
-      <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-, then click Submit Answer or press Enter</p>
+      <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-</p>
       </div>}
 
-      </div>
+      </React.Fragment>
     )
   }
 }
