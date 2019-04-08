@@ -7,13 +7,10 @@ body{
 
 h1{
   font-family: 'Black Han Sans', sans-serif;
-  font-size: 3.5vw;
   color: #F5F5F5;
-  height: 1.8vw;
 }
 
 h5{
-  font-size: 0.9vw;
   color: #F5F5F5;
 }
 
@@ -26,19 +23,17 @@ h5{
 .hint-p {
   display: flex;
   justify-content: center;
-  font-size: 1.5vw;
   padding: 0.1vw;
+  color: #4B0082;
 }
 
 #img {
-  margin: 15px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
-  border: 3px;
   border-style: solid;
-  width: 35vw;
+  max-width:95%;
+  max-height:100%;
 }
 
 #button {
@@ -46,34 +41,23 @@ h5{
   border: none;
   color: #F5F5F5;
   padding: 8px 22px;
-  margin-top: 1vw;
-  margin-left: 1vw;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 1.0vw;
-  height: 3.0vw;
 }
 
 #img-button{
   border-radius: 0vw 0vw 5vw 5vw;
-  padding-top: 1.5vw;
+  padding: 2%;
   display: flex;
   background-color: #FFFCF9;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
 }
 
-#msg {
-  word-spacing: 1px;
-  font-style: italic;
-  font-size: 1.5vw;
-}
-
-#require_input {
+#require-input {
 font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+max-width: 100%;
 color:#0000CD;
-font-size: 1.5vw;
 }
 
 #user-input {
@@ -82,8 +66,10 @@ font-size: 1.5vw;
 }
 
 #success-msg {
-  background-color: #32CD32;
-  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  height: 4vw;
+  color: #32CD32;
 }
 
 @-webkit-keyframes fade-out {
@@ -100,15 +86,14 @@ font-size: 1.5vw;
 
 #header {
   background-color: #008080;
-  padding: 2px;
+  border-radius: 5vw 5vw 0vw 0vw;
+  padding: 2%;
 }
 
 .result-container{
   margin: 0vw 20vw 0vw 20vw;
   font-weight: bold;
-  background-color: black;
-  word-spacing: 1px;
-  font-size: 1.5vw;
+  padding: 2%;
 }
 
 #load-error-msg{
@@ -116,20 +101,18 @@ font-size: 1.5vw;
 }
 
 #hint-msg{
-  color: #9400D3;
+  color: #FF1493;
 }
 
 #require-submit{
-  display: flex;
-  justify-content: center;
-  padding: 1vw;
-}
-
-#header{
-  border-radius: 5vw 5vw 0vw 0vw;
+  max-width: 100%;
+  padding: 2%;
 }
 
 #main{
-  margin-left: 5vw;
-  margin-right: 5vw;
+
+}
+
+#story-msg{
+  text-align: center;
 }

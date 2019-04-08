@@ -6,7 +6,7 @@ const whichMsg = (qnum) => {
   }
 
   if (qnum === 2){
-    return "Bob was taking Sandy out for a walk but he seems to have ran away..."
+    return "Bob is taking Sandy out for a walk... but Sandy seems to have ran away!"
   }
 
   if (qnum === 3){
@@ -18,18 +18,18 @@ const whichMsg = (qnum) => {
   }
 
   if (qnum === 5){
-    return "Bob was in an important meeting with his boss when he remembered that he left Sandy at the beach."
+    return "Bob was in an important meeting when he remembered that he left Sandy at the beach. Woops!"
   }
 
   if (qnum === 6){
-    return "Almost there.. find Sandy!"
+    return "Almost there... find Sandy!"
   }
 }
 
 
 const StoryMsg = (props) => {
   return(
-    <p className="center" id="msg">{whichMsg(props.qnum)}</p>
+    <p id="story-msg">{whichMsg(props.qnum)}</p>
   )
 }
 

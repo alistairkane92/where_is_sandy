@@ -17,6 +17,11 @@ class GameView extends Component{
     };
   }
 
+  componentDidMount = () => {
+    console.log('mounting', this.answerInput)
+    this.answerInput.focus();
+  }
+
   updateAnswer = (e) => {
     this.setState({answer: e.target.value})
   }
@@ -57,16 +62,17 @@ class GameView extends Component{
       <React.Fragment>
       <QuestionImage qnum={this.state.qnum}/>
       {this.state.end ? null :
-        <div>
+        <div id="input-form-container">
         {this.state.qnum >= 2 ? this.state.wrong ? null: <SuccessMsg/> : null}
         {this.state.wrong ? <LoadErrorMsg qnum={this.state.qnum} submitted={this.state.submitted}/> : null}
         <div id="require-submit">
-        <p className="center" id="require_input">require_relative("<input id="user-input" onChange={this.updateAnswer} onKeyPress={this.handleKeyPress}/>")</p>
-        <form onSubmit={this.submit} className="center">
-        <input type="submit"id="button" value="Submit Answer" />
+        <p className="center" id="require-input">require_relative("<input id="user-input" onChange={this.updateAnswer} onKeyPress={this.handleKeyPress} ref={(input) => { this.answerInput = input; }} />")
+        </p>
+        <form onSubmit={this.submit} className="center" >
+        <input type="submit"id="button" value="Submit Answer"/>
         </form>
         </div>
-        <p className="center" id="msg">Type the correct path from -<b>Bob</b>- to -<b>Sandy</b>-</p>
+        <p className="center" id="msg">Type the correct path from Bob to Sandy</p>
         </div>}
         </React.Fragment>
       )
