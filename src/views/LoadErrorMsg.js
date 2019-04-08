@@ -8,11 +8,15 @@ const LoadErrorMsg = (props) => {
     animationFillMode: 'forwards'
   }
 
-  return(
-    <div id="hint-error">
+  const display = (
     <div id="load-error-msg" className="center result-container" style={style}>
     <p>(LoadError): cannot load such file "{props.submitted}"</p>
     </div>
+  )
+
+  return(
+    <div id="hint-error">
+    {display}
     <HintMsg qnum={props.qnum}/>
     </div>
   )

@@ -10,7 +10,7 @@ const whichMsg = (qnum) => {
   }
 
   if (qnum === 3){
-    return "Sometimes, Sandy likes to wait for Bob outside of his work."
+    return "Sometimes, Sandy likes to wait for Bob outside the office."
   }
 
   if (qnum === 4){
