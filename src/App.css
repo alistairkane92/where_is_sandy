@@ -36,13 +36,14 @@ h5{
   max-height:95%;
 }
 
-#button {
+.button {
   background-color: #008080;
   border: none;
   color: #F5F5F5;
-  padding: 8px 22px;
   text-align: center;
   text-decoration: none;
+  margin: 0.2%;
+  padding: 0.8%;
 }
 
 #img-button{
@@ -108,10 +109,15 @@ max-width: 100%;
   padding: 2%;
 }
 
-#main{
-
-}
-
 #story-msg{
   text-align: center;
+}
+
+#buttons-container{ 
+  display: flex;
+  justify-content: center;
+}
+
+.modal-spacing{
+  letter-spacing: 0.8px;
 }
