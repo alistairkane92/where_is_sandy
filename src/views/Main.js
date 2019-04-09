@@ -3,6 +3,7 @@ import GameView from './GameView.js';
 import '../App.css';
 
 class Main extends Component {
+  // TODO make dropdown to change for JS/Ruby/React
   render() {
     return(
       <div id="main">

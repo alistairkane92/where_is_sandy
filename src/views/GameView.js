@@ -11,14 +11,11 @@ class GameView extends Component{
       answer: "",
       qnum: 1,
       end: false,
-      wrong: false,
-      submitted: "",
       txtBox: ""
     };
   }
 
   componentDidMount = () => {
-    console.log('mounting', this.answerInput)
     this.answerInput.focus();
   }
 
@@ -34,20 +31,17 @@ class GameView extends Component{
 
   submit = (e) => {
     e.preventDefault();
+    document.getElementById("user-input").value = "";
 
     if (Game.evalQ(this.state.qnum, this.state.answer.toLowerCase())){
       let newNum = this.state.qnum + 1
       this.setState({qnum: newNum})
 
-      let notWrongAnymore = false;
-      this.setState({wrong: notWrongAnymore})
-
       if (this.state.qnum === 6){
         let endGame = true
-        this.setState({end: endGame})
+        this.setState({ end: endGame })
       }
 
-      document.getElementById("user-input").value = ""
     } else {
       let newState = true
       this.setState({wrong: newState})
@@ -58,13 +52,18 @@ class GameView extends Component{
   }
 
   render(){
+    // TODO: refactor
+
+    // TODO: add instructions modal
+    
     return (
       <React.Fragment>
       <QuestionImage qnum={this.state.qnum}/>
+      
       {this.state.end ? null :
         <div id="input-form-container">
         {this.state.qnum >= 2 ? this.state.wrong ? null: <SuccessMsg/> : null}
-        {this.state.wrong ? <LoadErrorMsg qnum={this.state.qnum} submitted={this.state.submitted}/> : null}
+        {this.state.wrong ? <LoadErrorMsg qnum={this.state.qnum}/> : null}
         <div id="require-submit">
         <p className="center" id="require-input">require_relative("<input id="user-input" onChange={this.updateAnswer} onKeyPress={this.handleKeyPress} ref={(input) => { this.answerInput = input; }} />")
         </p>
@@ -72,7 +71,7 @@ class GameView extends Component{
         <input type="submit"id="button" value="Submit Answer"/>
         </form>
         </div>
-        <p className="center" id="msg">Type the correct path from Bob to Sandy</p>
+        <p className="center" id="msg">Type the relative path from Bob to Sandy</p>
         </div>}
         </React.Fragment>
       )

@@ -2,14 +2,14 @@ import React from 'react';
 import HintMsg from './HintMsg.js'
 
 const LoadErrorMsg = (props) => {
-  let style = {
-    animationName: 'fade-out',
-    animationDuration: '2.5s',
-    animationFillMode: 'forwards'
-  }
+  // let style = {
+  //   animationName: 'fade-out',
+  //   animationDuration: '2.5s',
+  //   animationFillMode: 'forwards'
+  // }
 
   const display = (
-    <div id="load-error-msg" className="center result-container" style={style}>
+    <div id="load-error-msg" className="center result-container">
     <p>(LoadError): cannot load such file "{props.submitted}"</p>
     </div>
   )
