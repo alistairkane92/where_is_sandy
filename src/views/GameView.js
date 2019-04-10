@@ -3,8 +3,8 @@ import Game from "../models/Game.js";
 import QuestionImage from "./QuestionImage.js";
 import SuccessMsg from "./SuccessMsg.js";
 import LoadErrorMsg from "./LoadErrorMsg.js";
+import InstructionsModal from "./InstructionsModal.js";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 
 class GameView extends Component {
   constructor(props) {
@@ -73,11 +73,8 @@ class GameView extends Component {
 
   render() {
     console.log("calling render", "qnum:", this.state.qnum);
-
     // TODO: refactor
     // TODO: level selector
-    // TODO: localstorage for progress
-    // TODO: restart btn?
 
     let importText = (
       <p className="center" id="require-input">
@@ -106,55 +103,13 @@ class GameView extends Component {
       </p>
     );
 
-    let guideModal = (
-      <React.Fragment>
-        <Button variant="primary" onClick={this.handleShow} className="button">
-          Guide
-        </Button>
-        <Modal
-          show={this.state.show}
-          onHide={this.handleClose}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Importing by Relative Path</Modal.Title>
-          </Modal.Header>
-          <Modal.Body id="modal-body">
-            When we want to import files we need to specify the path to that
-            file, relative to the file doing the importing.
-            <br />
-            <br />"<b className="modal-spacing"> filename</b> " refers to a file
-            in the same directory.
-            <br />"<b className="modal-spacing"> ./filename</b> " also refers to
-            a file in the same directory.
-            <br />"<b className="modal-spacing"> ../filename</b> " refers to a
-            file one level up.
-            <br />"<b className="modal-spacing"> ./directory/filename</b> "
-            refers to a file inside a directory on this level.
-            <br />"<b className="modal-spacing"> ../directory/filename</b> "
-            refers to a file inside a directory one level up.
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={this.handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </React.Fragment>
-    );
-
     let restartBtn;
 
     // if on the end screen, hide the bottom input text
     if (this.state.qnum === 7 || this.state.end) {
-      console.log("in the hide check");
-
       importText = null;
       submitBtn = null;
       instructionalMsg = null;
-      guideModal = null;
       restartBtn = (
         <Button
           variant="primary"
@@ -171,7 +126,8 @@ class GameView extends Component {
     console.log("checking result text", this.state.success);
     if (this.state.success) {
       resultText = <SuccessMsg />;
-    } else if (this.state.success === false && this.state.qnum > 1) {
+    } else if (this.state.success === false) {
+      console.log("ya wrong");
       resultText = (
         <LoadErrorMsg qnum={this.state.qnum} submitted={this.state.submitted} />
       );
@@ -185,7 +141,17 @@ class GameView extends Component {
           {importText}
           {instructionalMsg}
           <div id="buttons-container">
-            {guideModal}
+            <InstructionsModal
+              show={this.state.show}
+              handleClose={this.handleClose}
+            />
+            <Button
+              variant="primary"
+              onClick={this.handleShow}
+              className="button"
+            >
+              Guide
+            </Button>
             {submitBtn}
             {restartBtn}
           </div>
