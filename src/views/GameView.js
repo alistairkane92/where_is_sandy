@@ -14,20 +14,26 @@ class GameView extends Component {
       qnum: 1,
       end: false,
       txtBox: "",
-      submitted: ""
+      submitted: "",
+      success: null
     };
-
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount = () => {
     this.answerInput.focus();
-    if ()
+    const storedQNum = JSON.parse(localStorage.getItem("qnum"));
+    if (storedQNum) {
+      this.setState({ qnum: storedQNum });
+    }
   };
 
   updateAnswer = e => {
     this.setState({ answer: e.target.value });
+  };
+
+  handleRestartBtn = e => {
+    localStorage.setItem("qnum", 1);
+    this.setState({ qnum: 1, end: false });
   };
 
   handleKeyPress = e => {
@@ -36,13 +42,13 @@ class GameView extends Component {
     }
   };
 
-  handleClose() {
+  handleClose = () => {
     this.setState({ show: false });
-  }
+  };
 
-  handleShow() {
+  handleShow = () => {
     this.setState({ show: true });
-  }
+  };
 
   submit = e => {
     e.preventDefault();
@@ -50,27 +56,30 @@ class GameView extends Component {
 
     if (Game.evalQ(this.state.qnum, this.state.answer.toLowerCase())) {
       let newNum = this.state.qnum + 1;
-      this.setState({ qnum: newNum });
+      this.setState({ qnum: newNum, success: true });
+      localStorage.setItem("qnum", JSON.stringify(newNum));
 
       if (this.state.qnum === 6) {
-        let endGame = true;
-        this.setState({ end: endGame });
+        this.setState({ end: true });
       }
     } else {
-      let newState = true;
-      this.setState({ wrong: newState });
+      this.setState({ success: false });
 
-      let submitState = this.state.answer;
-      this.setState({ submitted: submitState });
+      this.setState(prevState => {
+        return { submitted: prevState.answer };
+      });
     }
   };
 
   render() {
+    console.log("calling render", "qnum:", this.state.qnum);
+
     // TODO: refactor
     // TODO: level selector
     // TODO: localstorage for progress
     // TODO: restart btn?
-    const importText = (
+
+    let importText = (
       <p className="center" id="require-input">
         require_relative("
         <input
@@ -85,80 +94,102 @@ class GameView extends Component {
       </p>
     );
 
+    let submitBtn = (
+      <Button variant="primary" onClick={this.submit} className="center button">
+        Submit
+      </Button>
+    );
+
+    let instructionalMsg = (
+      <p className="center" id="msg">
+        Type the relative path from Bob to Sandy
+      </p>
+    );
+
+    let guideModal = (
+      <React.Fragment>
+        <Button variant="primary" onClick={this.handleShow} className="button">
+          Guide
+        </Button>
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Importing by Relative Path</Modal.Title>
+          </Modal.Header>
+          <Modal.Body id="modal-body">
+            When we want to import files we need to specify the path to that
+            file, relative to the file doing the importing.
+            <br />
+            <br />"<b className="modal-spacing"> filename</b> " refers to a file
+            in the same directory.
+            <br />"<b className="modal-spacing"> ./filename</b> " also refers to
+            a file in the same directory.
+            <br />"<b className="modal-spacing"> ../filename</b> " refers to a
+            file one level up.
+            <br />"<b className="modal-spacing"> ./directory/filename</b> "
+            refers to a file inside a directory on this level.
+            <br />"<b className="modal-spacing"> ../directory/filename</b> "
+            refers to a file inside a directory one level up.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={this.handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </React.Fragment>
+    );
+
+    let restartBtn;
+
+    // if on the end screen, hide the bottom input text
+    if (this.state.qnum === 7 || this.state.end) {
+      console.log("in the hide check");
+
+      importText = null;
+      submitBtn = null;
+      instructionalMsg = null;
+      guideModal = null;
+      restartBtn = (
+        <Button
+          variant="primary"
+          onClick={this.handleRestartBtn}
+          className="button"
+        >
+          Restart
+        </Button>
+      );
+    }
+
+    let resultText;
+
+    console.log("checking result text", this.state.success);
+    if (this.state.success) {
+      resultText = <SuccessMsg />;
+    } else if (this.state.success === false && this.state.qnum > 1) {
+      resultText = (
+        <LoadErrorMsg qnum={this.state.qnum} submitted={this.state.submitted} />
+      );
+    }
+
     return (
       <React.Fragment>
         <QuestionImage qnum={this.state.qnum} />
-
-        {this.state.end ? null : (
-          <div id="input-form-container">
-            {this.state.qnum >= 2 ? (
-              this.state.wrong ? null : (
-                <SuccessMsg />
-              )
-            ) : null}
-            {this.state.wrong ? (
-              <LoadErrorMsg
-                qnum={this.state.qnum}
-                submitted={this.state.submitted}
-              />
-            ) : null}
-            <div id="require-submit">
-              {importText}
-              <p className="center" id="msg">
-                Type the relative path from Bob to Sandy
-              </p>
-              <div id="buttons-container">
-                <Button
-                  variant="primary"
-                  onClick={this.handleShow}
-                  className="button"
-                >
-                  Guide
-                </Button>
-                <Modal
-                  show={this.state.show}
-                  onHide={this.handleClose}
-                  size="lg"
-                  aria-labelledby="contained-modal-title-vcenter"
-                  centered
-                >
-                  <Modal.Header closeButton>
-                    <Modal.Title>Importing by Relative Path</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body id="modal-body">
-                    When we want to import files we need to specify the path to
-                    that file, relative to the file doing the importing.
-                    <br />
-                    <br />"<b className="modal-spacing"> filename</b> " refers
-                    to a file in the same directory.
-                    <br />"<b className="modal-spacing"> ./filename</b> " also
-                    refers to a file in the same directory.
-                    <br />"<b className="modal-spacing"> ../filename</b> "
-                    refers to a file one level up.
-                    <br />"
-                    <b className="modal-spacing"> ./directory/filename</b> "
-                    refers to a file inside a directory on this level.
-                    <br />"
-                    <b className="modal-spacing"> ../directory/filename</b> "
-                    refers to a file inside a directory one level up.
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="primary" onClick={this.handleClose}>
-                      Close
-                    </Button>
-                  </Modal.Footer>
-                </Modal>
-                <Button
-                  variant="primary"
-                  onClick={this.submit}
-                  className="center button"
-                >
-                  Submit
-                </Button>
-              </div>
-            </div>
+        {resultText}
+        <div id="require-submit">
+          {importText}
+          {instructionalMsg}
+          <div id="buttons-container">
+            {guideModal}
+            {submitBtn}
+            {restartBtn}
           </div>
-        )}
+        </div>
       </React.Fragment>
     );
   }
