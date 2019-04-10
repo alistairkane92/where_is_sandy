@@ -23,6 +23,7 @@ class GameView extends Component {
 
   componentDidMount = () => {
     this.answerInput.focus();
+    if ()
   };
 
   updateAnswer = e => {
@@ -68,6 +69,7 @@ class GameView extends Component {
     // TODO: refactor
     // TODO: level selector
     // TODO: localstorage for progress
+    // TODO: restart btn?
     const importText = (
       <p className="center" id="require-input">
         require_relative("
