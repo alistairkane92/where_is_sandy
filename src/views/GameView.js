@@ -14,8 +14,7 @@ class GameView extends Component {
       qnum: 1,
       end: false,
       txtBox: "",
-      submitted: "",
-      show: false
+      submitted: ""
     };
 
     this.handleShow = this.handleShow.bind(this);
@@ -67,8 +66,23 @@ class GameView extends Component {
 
   render() {
     // TODO: refactor
+    // TODO: level selector
+    // TODO: localstorage for progress
+    const importText = (
+      <p className="center" id="require-input">
+        require_relative("
+        <input
+          id="user-input"
+          onChange={this.updateAnswer}
+          onKeyPress={this.handleKeyPress}
+          ref={input => {
+            this.answerInput = input;
+          }}
+        />
+        ")
+      </p>
+    );
 
-    // TODO: add instructions button/modal
     return (
       <React.Fragment>
         <QuestionImage qnum={this.state.qnum} />
@@ -87,17 +101,9 @@ class GameView extends Component {
               />
             ) : null}
             <div id="require-submit">
-              <p className="center" id="require-input">
-                require_relative("
-                <input
-                  id="user-input"
-                  onChange={this.updateAnswer}
-                  onKeyPress={this.handleKeyPress}
-                  ref={input => {
-                    this.answerInput = input;
-                  }}
-                />
-                ")
+              {importText}
+              <p className="center" id="msg">
+                Type the relative path from Bob to Sandy
               </p>
               <div id="buttons-container">
                 <Button
@@ -149,9 +155,6 @@ class GameView extends Component {
                 </Button>
               </div>
             </div>
-            <p className="center" id="msg">
-              Type the relative path from Bob to Sandy
-            </p>
           </div>
         )}
       </React.Fragment>
