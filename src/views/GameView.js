@@ -115,7 +115,6 @@ class GameView extends Component {
       instructionalMsg = null;
       restartBtn = (
         <Button
-          block
           variant="primary"
           onClick={this.handleRestartBtn}
           className="button"
