@@ -72,9 +72,12 @@ class GameView extends Component {
   };
 
   render() {
-    console.log("calling render", "qnum:", this.state.qnum);
     // TODO: refactor
     // TODO: level selector
+    // TODO: read hints if you get stuck msg
+    // TODO: progress meter
+    // TODO: scrap the modal? use the bottom left quadrant for instructions
+    // TODO: block btns?
 
     let importText = (
       <p className="center" id="require-input">
@@ -92,7 +95,7 @@ class GameView extends Component {
     );
 
     let submitBtn = (
-      <Button variant="primary" onClick={this.submit} className="center button">
+      <Button variant="primary" onClick={this.submit} className="button">
         Submit
       </Button>
     );
@@ -112,6 +115,7 @@ class GameView extends Component {
       instructionalMsg = null;
       restartBtn = (
         <Button
+          block
           variant="primary"
           onClick={this.handleRestartBtn}
           className="button"
@@ -123,11 +127,9 @@ class GameView extends Component {
 
     let resultText;
 
-    console.log("checking result text", this.state.success);
     if (this.state.success) {
       resultText = <SuccessMsg />;
     } else if (this.state.success === false) {
-      console.log("ya wrong");
       resultText = (
         <LoadErrorMsg qnum={this.state.qnum} submitted={this.state.submitted} />
       );

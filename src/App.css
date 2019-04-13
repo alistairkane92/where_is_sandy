@@ -83,15 +83,13 @@ font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
   #img-button {
    height: 275px;
   }
-  #img {
-    width: 30em;
-  }
+
   .button {
     width: 400px;
   }
 
   #require-submit{
-    margin-top: 40px;
+    margin-top: 80px;
   }
 }
 
